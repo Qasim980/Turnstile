@@ -6,6 +6,8 @@
 
 **Built with:** Python · Flask · Redis · Nginx · Docker Compose
 
+This started as a [challenge](https://github.com/Qasim980/devops-learning/tree/main/05-docker/Challenge) from the **devops-learning bootcamp**, which I took and turned into its own project.
+
 ## Architecture
 
 ```
