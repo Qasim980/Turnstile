@@ -4,7 +4,7 @@
 
 **Turnstile** is a small visit counter built from three containers managed by Docker Compose. **Nginx** receives each request and passes it to the **Flask** app, which stores the visit count in **Redis**. The pages are styled HTML templates that show your visitor number and which container served you.
 
-**Built with:** 🐍 Python · 🌶️ Flask · 🟥 Redis · 🟩 Nginx · 🐳 Docker Compose
+**Built with:** Python · Flask · Redis · Nginx · Docker Compose
 
 ## Architecture
 
@@ -127,4 +127,4 @@ I used [Claude Code](https://claude.com/claude-code) to help design the UI: the 
 
 ## 📄 License
 
-Released under the [MIT License](LICENSE).
+MIT License, free to use.
