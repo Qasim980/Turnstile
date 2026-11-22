@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ app_name }}{% endblock %}</title>
+  <style>
+    :root {
+      --bg: #0f1117; --card: #181b24; --border: #2a2f3d;
+      --text: #e6e8ee; --muted: #8b92a5; --accent: #4ade80; --accent-2: #38bdf8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at 20% 0%, #1a2233 0%, var(--bg) 55%);
+      color: var(--text); min-height: 100vh; display: flex; flex-direction: column;
+    }
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 32px; border-bottom: 1px solid var(--border);
+    }
+    .brand { font-weight: 700; font-size: 1.25rem; color: var(--text); text-decoration: none; }
+    .brand span { color: var(--accent); }
+    nav .links a { color: var(--muted); text-decoration: none; margin-left: 24px; }
+    nav .links a:hover, nav .links a.active { color: var(--text); }
+    main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px 16px; }
+    .card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+      padding: 48px; max-width: 640px; width: 100%; text-align: center;
+    }
+    h1 { font-size: 2.5rem; margin-bottom: 12px; }
+    p.lead { color: var(--muted); font-size: 1.1rem; line-height: 1.6; }
+    .btn {
+      display: inline-block; margin-top: 28px; padding: 12px 28px; border-radius: 10px;
+      background: var(--accent); color: #0b1a10; font-weight: 600; text-decoration: none;
+      transition: transform .15s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--border); margin-left: 8px; }
+    footer {
+      text-align: center; padding: 16px; color: var(--muted); font-size: .85rem;
+      border-top: 1px solid var(--border);
+    }
+    code { background: #0b0d12; padding: 2px 6px; border-radius: 4px; color: var(--accent-2); }
+    @media (max-width: 520px) { .card { padding: 32px 20px; } h1 { font-size: 2rem; } nav { padding: 16px; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="brand" href="/">🎟️ Turn<span>stile</span></a>
+    <div class="links">
+      <a href="/" class="{{ 'active' if request.path == '/' }}">Home</a>
+      <a href="/count" class="{{ 'active' if request.path == '/count' }}">Counter</a>
+    </div>
+  </nav>
+  <main>{% block content %}{% endblock %}</main>
+  <footer>Served by container <code>{{ hostname }}</code> · Flask + Redis + Nginx</footer>
+</body>
+</html>

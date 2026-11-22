@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Counter · {{ app_name }}{% endblock %}
+{% block content %}
+<style>
+  .count {
+    font-size: 6rem; font-weight: 800; line-height: 1; margin: 16px 0;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: pop .5s ease-out;
+  }
+  @keyframes pop { from { transform: scale(.6); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  .error { color: #f87171; }
+</style>
+<div class="card">
+  {% if error %}
+    <h1>Hmm.</h1>
+    <p class="lead error">{{ error }}</p>
+  {% else %}
+    <p class="lead">You are visitor number</p>
+    <div class="count">{{ "{:,}".format(visits) }}</div>
+    <p class="lead">
+      {% if visits == 1 %}You're the very first through the gate. Welcome!
+      {% else %}{{ "{:,}".format(visits - 1) }} people passed through before you.{% endif %}
+    </p>
+  {% endif %}
+  <a class="btn" href="/count">Go round again</a>
+  <a class="btn ghost" href="/">Home</a>
+</div>
+{% endblock %}

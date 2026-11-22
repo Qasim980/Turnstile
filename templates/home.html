@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <h1>Click through. Get counted.</h1>
+  <p class="lead">
+    Turnstile is a tiny visit counter running across three containers:
+    <strong>Nginx</strong> takes your request, <strong>Flask</strong> handles it,
+    and <strong>Redis</strong> remembers how many people have passed through.
+  </p>
+  <a class="btn" href="/count">Pass through →</a>
+</div>
+{% endblock %}
