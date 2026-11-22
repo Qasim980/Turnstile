@@ -44,7 +44,8 @@ Flask connects using the hostname `redis`. Compose's built-in DNS resolves each 
 ├── nginx.conf           # Reverse proxy config (forwards to web:5003)
 ├── docker-compose.yml   # Defines and connects all three services
 ├── .dockerignore        # Keeps venv/ and caches out of the image
-└── .gitignore
+├── .gitignore
+└── LICENSE              # MIT
 ```
 
 ## 🚀 How to run
@@ -119,3 +120,11 @@ docker compose exec web <cmd>    # run a command inside a container
 docker ps                        # all running containers
 lsof -P -i :<port>               # what's holding a port?
 ```
+
+## Extra
+
+I used [Claude Code](https://claude.com/claude-code) to help design the UI: the page layouts, styling and the counter animation.
+
+## 📄 License
+
+Released under the [MIT License](LICENSE).
